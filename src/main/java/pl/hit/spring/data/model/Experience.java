@@ -1,5 +1,11 @@
 package pl.hit.spring.data.model;
 
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
+
+@Entity
+@Table(name = "experience")
 public class Experience {
 
     //  jobtitle                                                   Trener SDA
@@ -9,24 +15,60 @@ public class Experience {
     //                                                             - Pomoc w rozwiązywanie problemów,
     //                                                             - Dołowanie podopiecznych.
 
-    private long id;
-    private String startYear;
-    private String endYear;
-    private String company;
-    private String location;
-    private String jobTitle;
-    private String subtitle;
-    private String[] responsibilities;
+    @Id
+    @GeneratedValue
+    private int idExperience;
 
-    public Experience(String startYear, String endYear, String company, String location, String jobTitle,
-                      String subtitle, String[] responsibilities) {
+    @ManyToOne
+    @JoinColumn(name = "idPerson")
+    private Person idPerson;
+
+    @Column(name = "startYear")
+    private String startYear;
+
+    @Column(name = "endYear")
+    private String endYear;
+
+    @Column(name = "company")
+    private String company;
+
+    @Column(name = "location")
+    private String location;
+
+    @Column(name = "jobTitle")
+    private String jobTitle;
+
+    @Column(name = "description")
+    private String description;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "idExperience")
+    private Set<Responsibility> responsibility = new HashSet<>();
+
+    public Experience(Person idPerson, String startYear, String endYear, String company, String location,
+                      String jobTitle, String description) {
+        this.idPerson = idPerson;
         this.startYear = startYear;
         this.endYear = endYear;
         this.company = company;
         this.location = location;
         this.jobTitle = jobTitle;
-        this.subtitle = subtitle;
-        this.responsibilities = responsibilities;
+        this.description = description;
+    }
+
+    public int getIdExperience() {
+        return idExperience;
+    }
+
+    public void setIdExperience(int idExperience) {
+        this.idExperience = idExperience;
+    }
+
+    public Person getIdPerson() {
+        return idPerson;
+    }
+
+    public void setIdPerson(Person idPerson) {
+        this.idPerson = idPerson;
     }
 
     public String getStartYear() {
@@ -69,19 +111,19 @@ public class Experience {
         this.jobTitle = jobTitle;
     }
 
-    public String getSubtitle() {
-        return subtitle;
+    public String getDescription() {
+        return description;
     }
 
-    public void setSubtitle(String subtitle) {
-        this.subtitle = subtitle;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public String[] getResponsibilities() {
-        return responsibilities;
+    public Set<Responsibility> getResponsibility() {
+        return responsibility;
     }
 
-    public void setResponsibilities(String[] responsibilities) {
-        this.responsibilities = responsibilities;
+    public void setResponsibility(Set<Responsibility> responsibility) {
+        this.responsibility = responsibility;
     }
 }

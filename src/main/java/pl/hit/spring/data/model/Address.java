@@ -1,23 +1,59 @@
 package pl.hit.spring.data.model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "address")
 public class Address {
 
     //  street houseNumber/apartmentNumber                  Rzeźnicza 28/31
     //  postCode City                                       50-130 Wrocław
 
-    private long id;
+    @Id
+    @GeneratedValue
+    private int idAddress;
+
+    @OneToOne
+    private Person idPerson;
+
+    @Column(name = "street")
     private String street;
+
+    @Column(name = "houseNumber")
     private int houseNumber;
+
+    @Column(name = "apartmentNumber")
     private int apartmentNumber;
+
+    @Column(name = "postCode")
     private String postCode;
+
+    @Column(name = "city")
     private String city;
 
-    public Address(String street, int houseNumber, int apartmentNumber, String postCode, String city) {
+    public Address(Person idPerson, String street, int houseNumber, int apartmentNumber, String postCode, String city) {
+        this.idPerson = idPerson;
         this.street = street;
         this.houseNumber = houseNumber;
         this.apartmentNumber = apartmentNumber;
         this.postCode = postCode;
         this.city = city;
+    }
+
+    public int getIdAddress() {
+        return idAddress;
+    }
+
+    public void setIdAddress(int idAddress) {
+        this.idAddress = idAddress;
+    }
+
+    public Person getIdPerson() {
+        return idPerson;
+    }
+
+    public void setIdPerson(Person idPerson) {
+        this.idPerson = idPerson;
     }
 
     public String getStreet() {

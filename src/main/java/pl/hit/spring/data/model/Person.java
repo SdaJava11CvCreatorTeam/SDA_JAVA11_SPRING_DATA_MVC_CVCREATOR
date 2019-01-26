@@ -1,89 +1,126 @@
 package pl.hit.spring.data.model;
 
+import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
+@Entity
+@Table(name = "person")
 public class Person {
 
-    private long id;
-    private String email;
-    private String name;
-    private String surname;
-    private String gender;
-    private Date birthDate;
-    private int phone;
-    private String[] socialMedia;
-    private Address address;
-    private Education[] education;
-    private Skill[] skills;
-    private String about;
-    private Experience[] experience;
-    private Language[] languages;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idPerson")
+    private int idPerson;
 
-    public Person(long id, String email, String name, String surname, String gender, Date birthDate, int phone,
-                  String[] socialMedia, Address address, Education[] education, Skill[] skills, String about,
-                  Experience[] experience, Language[] languages) {
-        this.id = id;
-        this.email = email;
-        this.name = name;
-        this.surname = surname;
+    @OneToOne
+    private User user;
+
+    @Column(name = "firstName")
+    private String firstName;
+
+    @Column(name = "lastName")
+    private String lastName;
+
+    @Column(name = "dateOfBirth")
+    private Date dateOfBirth;
+
+    @Column(name = "gender")
+    private boolean gender; //male = true; female = false;
+
+    @Column(name = "phone")
+    private int phone;
+
+    @Column(name = "email")
+    private String email;
+
+    @Column(name = "about")
+    private String about;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "idPerson")
+    private Set<Experience> experience = new HashSet<>();
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "idPerson")
+    private Set<Education> education = new HashSet<>();
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "idPerson")
+    private Set<Skill> skill = new HashSet<>();
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "idPerson")
+    private Set<SocialMedia> socialMedia = new HashSet<>();
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "idPerson")
+    private Set<Language> language = new HashSet<>();
+
+    @OneToOne(mappedBy = "idPerson")
+    private Address idAddress;
+
+    public Person(User idUser, String firstName, String lastName, Date dateOfBirth, boolean gender, int phone,
+                  String email, String about, Set<Experience> experience, Set<Education> education, Set<Skill> skill,
+                  Set<SocialMedia> socialMedia, Set<Language> language, Address idAddress) {
+        this.user = idUser;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.dateOfBirth = dateOfBirth;
         this.gender = gender;
-        this.birthDate = birthDate;
         this.phone = phone;
-        this.socialMedia = socialMedia;
-        this.address = address;
-        this.education = education;
-        this.skills = skills;
+        this.email = email;
         this.about = about;
         this.experience = experience;
-        this.languages = languages;
+        this.education = education;
+        this.skill = skill;
+        this.socialMedia = socialMedia;
+        this.language = language;
+        this.idAddress = idAddress;
     }
 
-    public long getId() {
-        return id;
+    public int getPerson() {
+        return idPerson;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setPerson(int idPerson) {
+        this.idPerson = idPerson;
     }
 
-    public String getEmail() {
-        return email;
+    public User getUser() {
+        return user;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setIdUser(User idUser) {
+        this.user = idUser;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getSurname() {
-        return surname;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public String getGender() {
+    public Date getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(Date dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public boolean isGender() {
         return gender;
     }
 
-    public void setGender(String gender) {
+    public void setGender(boolean gender) {
         this.gender = gender;
-    }
-
-    public Date getBirthDate() {
-        return birthDate;
-    }
-
-    public void setBirthDate(Date birthDate) {
-        this.birthDate = birthDate;
     }
 
     public int getPhone() {
@@ -94,36 +131,12 @@ public class Person {
         this.phone = phone;
     }
 
-    public String[] getSocialMedia() {
-        return socialMedia;
+    public String getEmail() {
+        return email;
     }
 
-    public void setSocialMedia(String[] socialMedia) {
-        this.socialMedia = socialMedia;
-    }
-
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress(Address address) {
-        this.address = address;
-    }
-
-    public Education[] getEducation() {
-        return education;
-    }
-
-    public void setEducation(Education[] education) {
-        this.education = education;
-    }
-
-    public Skill[] getSkills() {
-        return skills;
-    }
-
-    public void setSkills(Skill[] skills) {
-        this.skills = skills;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getAbout() {
@@ -134,19 +147,51 @@ public class Person {
         this.about = about;
     }
 
-    public Experience[] getExperience() {
+    public Set<Experience> getExperience() {
         return experience;
     }
 
-    public void setExperience(Experience[] experience) {
+    public void setExperience(Set<Experience> experience) {
         this.experience = experience;
     }
 
-    public Language[] getLanguages() {
-        return languages;
+    public Set<Education> getEducation() {
+        return education;
     }
 
-    public void setLanguages(Language[] languages) {
-        this.languages = languages;
+    public void setEducation(Set<Education> education) {
+        this.education = education;
+    }
+
+    public Set<Skill> getSkill() {
+        return skill;
+    }
+
+    public void setSkill(Set<Skill> skill) {
+        this.skill = skill;
+    }
+
+    public Set<SocialMedia> getSocialMedia() {
+        return socialMedia;
+    }
+
+    public void setSocialMedia(Set<SocialMedia> socialMedia) {
+        this.socialMedia = socialMedia;
+    }
+
+    public Set<Language> getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(Set<Language> language) {
+        this.language = language;
+    }
+
+    public Address getIdAddress() {
+        return idAddress;
+    }
+
+    public void setIdAddress(Address idAddress) {
+        this.idAddress = idAddress;
     }
 }
