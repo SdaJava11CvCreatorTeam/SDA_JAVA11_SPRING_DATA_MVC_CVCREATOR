@@ -11,13 +11,13 @@ import pl.hit.spring.data.model.Person;
 public class PersonController {
 
 
-    @GetMapping("/person")
+    @GetMapping("/form")
     public String PersonForm(Model model){
-    model.addAttribute("person", new Person());
+    model.addAttribute("person", "person");
         return "person";
     }
 
-    @PostMapping("/person")
+    @PostMapping("/form")
     public String PersonSubmit(@ModelAttribute Person person){
         return "result";
     }

@@ -1,30 +1,31 @@
 package pl.hit.spring.data.model;
 
+import javax.persistence.*;
 
+
+@Entity
+@Table(name = "user")
 public class User {
 
-    private long id;
+    @Id
+    @GeneratedValue
+    private int idUser;
+
+    @OneToOne(mappedBy = "user")
+    private Person person;
+
+    @Column(name = "login")
     private String login;
 
-    public User(long id, String login) {
-        this.id = id;
-        this.login = login;
-    }
+    @Column(name = "password")
+    private String password;
 
-    public long getId() {
-        return id;
-    }
 
-    public void setId(long id) {
-        this.id = id;
+    @Override
+    public String toString() {
+        return "User{" +
+                "idUser=" + idUser +
+                ", login='" + login + '\'' +
+                '}';
     }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
 }

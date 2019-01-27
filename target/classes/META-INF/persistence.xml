@@ -6,11 +6,12 @@ http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
 
     <persistence-unit name="knowledgePU">
         <properties>
+
             <!-- Połączenie do bazy danych z ustawieniem strefy czasowej i automatycznego tworzenia bazy, gdy nie istnieje -->
             <property name="javax.persistence.jdbc.url"
-                      value="jdbc:mysql://localhost:3306/CVdatabase?createDatabaseIfNotExist=true&amp;serverTimezone=UTC"/>
+                      value="jdbc:mysql://localhost:3306/CVdatabase?user=root&amp;createDatabaseIfNotExist=true&amp;serverTimezone=UTC"/>
             <!-- Nazwa użytkownika (domyślny dla instalacji MySQL) -->
-            <property name="javax.persistence.jdbc.user" value="root"/>
+            <!--<property name="javax.persistence.jdbc.idUser" value="root"/>-->
             <!-- Hasło pozostawiamy zakomentowane, bo domyślnie go nie ma -->
             <!-- <property name="javax.persistence.jdbc.userPassword" value=""/> -->
             <!-- Ustawienie sterownika do bazy danych -->

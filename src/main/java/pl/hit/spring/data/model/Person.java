@@ -6,7 +6,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name="person")
+@Table(name = "person")
 public class Person {
 
     @Id
@@ -14,8 +14,7 @@ public class Person {
     @Column(name = "idPerson")
     private int idPerson;
 
-    @ManyToOne
-    @JoinColumn(name = "idUser")
+    @OneToOne
     private User user;
 
     @Column(name = "firstName")
@@ -54,14 +53,13 @@ public class Person {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "idPerson")
     private Set<Language> language = new HashSet<>();
 
-    @ManyToOne
-    @JoinColumn(name = "idAddress")
+    @OneToOne(mappedBy = "idPerson")
     private Address idAddress;
 
-    public Person(User user, String firstName, String lastName, Date dateOfBirth, boolean gender, int phone,
+    public Person(User idUser, String firstName, String lastName, Date dateOfBirth, boolean gender, int phone,
                   String email, String about, Set<Experience> experience, Set<Education> education, Set<Skill> skill,
                   Set<SocialMedia> socialMedia, Set<Language> language, Address idAddress) {
-        this.user = user;
+        this.user = idUser;
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
@@ -77,11 +75,11 @@ public class Person {
         this.idAddress = idAddress;
     }
 
-    public int getIdPerson() {
+    public int getPerson() {
         return idPerson;
     }
 
-    public void setIdPerson(int idPerson) {
+    public void setPerson(int idPerson) {
         this.idPerson = idPerson;
     }
 
@@ -89,8 +87,8 @@ public class Person {
         return user;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setIdUser(User idUser) {
+        this.user = idUser;
     }
 
     public String getFirstName() {
