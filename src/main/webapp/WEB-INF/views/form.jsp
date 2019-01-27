@@ -9,7 +9,6 @@
 <!doctype html>
 <html lang="pl">
 <head>
-
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -29,47 +28,47 @@
     <div class="form-row">
         <div class="form-group col-md-6">
             <label for="inputName">Imię</label>
-            <input type="" class="form-control" id="inputName" placeholder="Jan">
+            <input type="text" class="form-control" id="inputName" placeholder="Jan">
         </div>
         <div class="form-group col-md-6">
             <label for="inputSurName">Nazwisko</label>
-            <input type="SecondName" class="form-control" id="inputSurName" placeholder="Kowalski">
+            <input type="text" class="form-control" id="inputSurName" placeholder="Kowalski">
         </div>
     </div>
-    <div class="form-group">
+    <div class="form-group col-md-6">
         <label for="inputAddress">Miejsce zamieszkania</label>
         <input type="text" class="form-control" id="inputAddress" placeholder="Warszawa">
     </div>
-    <div class="form-group">
+    <div class="form-group col-md-6">
         <label for="inputAddress2">Numer telefonu</label>
-        <input type="text" class="form-control" id="inputAddress2" placeholder="888999000">
+        <input type="tel" class="form-control" id="inputAddress2" placeholder="888999000">
     </div>
     <div class="form-row">
         <div class="form-group col-md-6">
             <label for="inputCity">Data urodzenia</label>
-            <input type="text" class="form-control" id="inputCity" placeholder="15-03-1975">
+            <input type="datetime-local" class="form-control" id="inputCity" placeholder="15-03-1975">
         </div>
         <%--<div class="form-group col-md-4">--%>
-            <%--<label for="inputState">State</label>--%>
-            <%--<select id="inputState" class="form-control">--%>
-                <%--<option selected>Choose...</option>--%>
-                <%--<option>...</option>--%>
-            <%--</select>--%>
+        <%--<label for="inputState">State</label>--%>
+        <%--<select id="inputState" class="form-control">--%>
+        <%--<option selected>Choose...</option>--%>
+        <%--<option>...</option>--%>
+        <%--</select>--%>
         <%--</div>--%>
         <%--<div class="form-group col-md-2">--%>
-            <%--<label for="inputZip">Zip</label>--%>
-            <%--<input type="text" class="form-control" id="inputZip">--%>
+        <%--<label for="inputZip">Zip</label>--%>
+        <%--<input type="text" class="form-control" id="inputZip">--%>
         <%--</div>--%>
-    <%--</div>--%>
-    <%--<div class="form-group">--%>
+        <%--</div>--%>
+        <%--<div class="form-group">--%>
         <%--<div class="form-check">--%>
-            <%--<input class="form-check-input" type="checkbox" id="gridCheck">--%>
-            <%--<label class="form-check-label" for="gridCheck">--%>
-                <%--Check me out--%>
-            <%--</label>--%>
+        <%--<input class="form-check-input" type="checkbox" id="gridCheck">--%>
+        <%--<label class="form-check-label" for="gridCheck">--%>
+        <%--Check me out--%>
+        <%--</label>--%>
         <%--</div>--%>
-    <%--</div>--%>
-    <button type="submit" class="btn btn-primary">Sign in</button>
+    </div>
+        <button type="submit" class="btn btn-primary">Sign in</button>
 </form>
 <a href="/result">result page</a>
 <!-- Bootstrap core JavaScript -->
