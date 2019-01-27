@@ -1,6 +1,5 @@
 package pl.hit.spring.data.model;
 
-import java.util.Date;
 
 public class User {
 
