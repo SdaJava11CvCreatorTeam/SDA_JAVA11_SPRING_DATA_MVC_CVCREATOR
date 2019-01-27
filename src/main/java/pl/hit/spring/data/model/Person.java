@@ -194,4 +194,7 @@ public class Person {
     public void setIdAddress(Address idAddress) {
         this.idAddress = idAddress;
     }
+
+    public Person() {
+    }
 }

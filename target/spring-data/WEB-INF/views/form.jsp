@@ -1,3 +1,5 @@
+<%@ taglib prefix="th" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
   User: Łukasz
@@ -23,52 +25,66 @@
     <title>CV form</title>
 </head>
 <body>
-<h1>this is for test</h1>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/home">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Library</li>
+    </ol>
+</nav>
+<h1 class="align-content-center">Formularz bez rejestracji</h1>
+<hr class="style18">
 <form>
+    <form:form method="POST" action="/form" modelAttribute="person">
     <div class="form-row">
         <div class="form-group col-md-6">
-            <label for="inputName">Imię</label>
+            <form:label path ="firstName">Imię</form:label>
+            <form:input path="firstName"/>
             <input type="text" class="form-control" id="inputName" placeholder="Jan">
+
+
+
         </div>
         <div class="form-group col-md-6">
             <label for="inputSurName">Nazwisko</label>
             <input type="text" class="form-control" id="inputSurName" placeholder="Kowalski">
         </div>
     </div>
-    <div class="form-group col-md-6">
-        <label for="inputAddress">Miejsce zamieszkania</label>
-        <input type="text" class="form-control" id="inputAddress" placeholder="Warszawa">
-    </div>
-    <div class="form-group col-md-6">
-        <label for="inputAddress2">Numer telefonu</label>
-        <input type="tel" class="form-control" id="inputAddress2" placeholder="888999000">
-    </div>
+
     <div class="form-row">
-        <div class="form-group col-md-6">
+        <div class="form-group col-md-4">
+            <label for="inputAddress">Miejsce zamieszkania</label>
+            <input type="text" class="form-control" id="inputAddress" placeholder="Warszawa">
+        </div>
+        <div class="form-group col-md-4">
+            <label for="inputAddress2">Numer telefonu</label>
+            <input type="tel" class="form-control" id="inputAddress2" placeholder="888999000">
+        </div>
+        <div class="form-group col-md-4">
             <label for="inputCity">Data urodzenia</label>
             <input type="datetime-local" class="form-control" id="inputCity" placeholder="15-03-1975">
         </div>
-        <%--<div class="form-group col-md-4">--%>
-        <%--<label for="inputState">State</label>--%>
-        <%--<select id="inputState" class="form-control">--%>
-        <%--<option selected>Choose...</option>--%>
-        <%--<option>...</option>--%>
-        <%--</select>--%>
-        <%--</div>--%>
-        <%--<div class="form-group col-md-2">--%>
-        <%--<label for="inputZip">Zip</label>--%>
-        <%--<input type="text" class="form-control" id="inputZip">--%>
-        <%--</div>--%>
-        <%--</div>--%>
-        <%--<div class="form-group">--%>
-        <%--<div class="form-check">--%>
-        <%--<input class="form-check-input" type="checkbox" id="gridCheck">--%>
-        <%--<label class="form-check-label" for="gridCheck">--%>
-        <%--Check me out--%>
-        <%--</label>--%>
-        <%--</div>--%>
     </div>
+    <%--<div class="form-group col-md-4">--%>
+    <%--<label for="inputState">State</label>--%>
+    <%--<select id="inputState" class="form-control">--%>
+    <%--<option selected>Choose...</option>--%>
+    <%--<option>...</option>--%>
+    <%--</select>--%>
+    <%--</div>--%>
+    <%--<div class="form-group col-md-2">--%>
+    <%--<label for="inputZip">Zip</label>--%>
+    <%--<input type="text" class="form-control" id="inputZip">--%>
+    <%--</div>--%>
+    <%--</div>--%>
+    <%--<div class="form-group">--%>
+    <%--<div class="form-check">--%>
+    <%--<input class="form-check-input" type="checkbox" id="gridCheck">--%>
+    <%--<label class="form-check-label" for="gridCheck">--%>
+    <%--Check me out--%>
+    <%--</label>--%>
+    <%--</div>--%>
     <button type="submit" class="btn btn-primary">Sign in</button>
+    </form:form>
 </form>
 <a href="/result">result page</a>
 <!-- Bootstrap core JavaScript -->
