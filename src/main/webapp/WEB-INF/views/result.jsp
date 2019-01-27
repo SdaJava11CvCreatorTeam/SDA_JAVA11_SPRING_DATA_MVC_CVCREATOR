@@ -11,11 +11,15 @@
     <title>Result</title>
 </head>
 <body>
-<h3>eMail adress:</h3>
+<h3>imię</h3>
 
-<h3>java level:</h3>
+<h3>nazwisko</h3>
 
-<h3>coś o sobie</h3>
+<h3>miejsce zamieszkania</h3>
+
+<h3>tel</h3>
+
+<h3>data urodzenia</h3>
 
 </body>
 </html>
