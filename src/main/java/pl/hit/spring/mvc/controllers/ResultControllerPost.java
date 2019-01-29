@@ -7,11 +7,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/result")
-public class ResultController {
+public class ResultControllerPost {
 
-    @GetMapping
-    public String getResultPage(){
+    @PostMapping
+    public String postResultPage(){
         return "result";
     }
+
+
 
 }

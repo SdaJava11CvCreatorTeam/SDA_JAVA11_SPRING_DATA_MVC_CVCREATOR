@@ -32,34 +32,34 @@
 <h1 class="text-center">Formularz bez rejestracji</h1>
 <hr class="style18">
 <div class="container">
-    <form>
+    <form name="testform" action="/result" method="post">
         <div class="form-row">
             <div class="form-group col-md-4">
-                <label for="inputName">Imię</label>
-                <input type="text" class="form-control" id="inputName" placeholder="Jan">
+                <label for="firstName">Imię</label>
+                <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Jan">
             </div>
             <div class="form-group col-md-4">
                 <label for="inputSurName">Nazwisko</label>
-                <input type="text" class="form-control" id="inputSurName" placeholder="Kowalski">
+                <input type="text" class="form-control" id="inputSurName" name="lastName" placeholder="Kowalski">
             </div>
             <div class="form-group col-md-4">
                 <label for="inputMail">Nazwisko</label>
-                <input type="email" class="form-control" id="inputMail" placeholder="Kowalski@mail.pl">
+                <input type="email" class="form-control" id="inputMail" name="email" placeholder="Kowalski@mail.pl">
             </div>
         </div>
 
         <div class="form-row">
             <div class="form-group col-md-4">
                 <label for="inputAddress">Miejsce zamieszkania</label>
-                <input type="text" class="form-control" id="inputAddress" placeholder="Warszawa">
+                <input type="text" class="form-control" id="inputAddress" name="adress" placeholder="Warszawa">
             </div>
             <div class="form-group col-md-4">
                 <label for="inputAddress2">Numer telefonu</label>
-                <input type="tel" class="form-control" id="inputAddress2" placeholder="888999000">
+                <input type="tel" class="form-control" id="inputAddress2" name="tel" placeholder="888999000">
             </div>
             <div class="form-group col-md-4">
-                <label for="inputCity">Data urodzenia</label>
-                <input type="date" class="form-control" id="inputCity">
+                <label for="dob">Data urodzenia</label>
+                <input type="date" class="form-control" id="dob" name="dateOfBirth">
             </div>
         </div>
         <hr>
@@ -78,11 +78,11 @@
             </div>
             <div class="form-group col-xs-6 col-sm-4 col-md-3 col-lg-3 col-xl-3">
                 <label for="studyDateFrom">data od</label>
-                <input type="date" class="form-control" id="studyDateFrom">
+                <input type="date" class="form-control" id="studyDateFrom" name="studyDateFrom">
             </div>
             <div class="form-group col-xs-6 col-sm-4 col-md-3 col-lg-3 col-xl-3">
                 <label for="studyDateTo">data do</label>
-                <input type="date" class="form-control" id="studyDateTo">
+                <input type="date" class="form-control" id="studyDateTo" name="studyDateTo">
             </div>
             <div class="input-group-btn">
                 <button class="btn btn-success" type="button" onclick="education_fields();"><span
@@ -114,24 +114,24 @@
         <div class="form-row">
             <div class="form-group col-md-3">
                 <label for="schoolName3">Firma</label>
-                <input type="text" class="form-control" id="schoolName3">
+                <input type="text" class="form-control" id="schoolName3" name="jobCompany">
             </div>
             <div class="form-group col-md-3">
                 <label for="studySubject3">stanowisko</label>
-                <input type="tel" class="form-control" id="studySubject3">
+                <input type="text" class="form-control" id="studySubject3" name="occupance">
             </div>
             <div class="form-group col-md-3">
                 <label for="studyDateFrom3">data od</label>
-                <input type="date" class="form-control" id="studyDateFrom3">
+                <input type="date" class="form-control" id="studyDateFrom3" name="jobDateFrom">
             </div>
             <div class="form-group col-md-3">
                 <label for="studyDateTo3">data do</label>
-                <input type="date" class="form-control" id="studyDateTo3">
+                <input type="date" class="form-control" id="studyDateTo3" name="jobDateTo">
             </div>
         </div>
+        <input type="submit" value="submit" name="submit" class="btn btn-primary align-content-center">
     </form>
 </div>
-<button type="submit" class="btn btn-primary align-content-center">Zatwierdz i wygeneruj</button>
 <a href="/result">result page</a>
 
 
