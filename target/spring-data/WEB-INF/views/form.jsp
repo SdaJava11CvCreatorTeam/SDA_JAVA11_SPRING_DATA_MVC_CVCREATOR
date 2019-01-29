@@ -1,5 +1,3 @@
-<%@ taglib prefix="th" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
   User: Łukasz
@@ -27,69 +25,119 @@
 <body>
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/home">Home</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Library</li>
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">formularz bez rejestracji</li>
     </ol>
 </nav>
-<h1 class="align-content-center">Formularz bez rejestracji</h1>
+<h1 class="text-center">Formularz bez rejestracji</h1>
 <hr class="style18">
-<form>
-    <form:form method="POST" action="/form" modelAttribute="person">
-    <div class="form-row">
-        <div class="form-group col-md-6">
-            <form:label path ="firstName">Imię</form:label>
-            <form:input path="firstName"/>
-            <input type="text" class="form-control" id="inputName" placeholder="Jan">
+<div class="container">
+    <form>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="inputName">Imię</label>
+                <input type="text" class="form-control" id="inputName" placeholder="Jan">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputSurName">Nazwisko</label>
+                <input type="text" class="form-control" id="inputSurName" placeholder="Kowalski">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputMail">Nazwisko</label>
+                <input type="email" class="form-control" id="inputMail" placeholder="Kowalski@mail.pl">
+            </div>
+        </div>
 
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="inputAddress">Miejsce zamieszkania</label>
+                <input type="text" class="form-control" id="inputAddress" placeholder="Warszawa">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputAddress2">Numer telefonu</label>
+                <input type="tel" class="form-control" id="inputAddress2" placeholder="888999000">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputCity">Data urodzenia</label>
+                <input type="date" class="form-control" id="inputCity">
+            </div>
+        </div>
+        <hr>
+        <h3 class="text-center">Edukacja</h3>
+        <div id="education_fields">
+            <%--tu zostaną utworzone nowe formy po kliknięciu + --%>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-xs-6 col-sm-4 col-md-3 col-lg-3 col-xl-3">
+                <label for="Schoolname">Uczelnia/Kurs</label>
+                <input type="text" class="form-control" id="Schoolname" name="Major[]" value="">
+            </div>
+            <div class="form-group col-xs-6 col-sm-4 col-md-3 col-lg-3 col-xl-3">
+                <label for="studySubject">przedmiot nauki</label>
+                <input type="text" class="form-control" id="studySubject" name="Schoolname[]" value="">
+            </div>
+            <div class="form-group col-xs-6 col-sm-4 col-md-3 col-lg-3 col-xl-3">
+                <label for="studyDateFrom">data od</label>
+                <input type="date" class="form-control" id="studyDateFrom">
+            </div>
+            <div class="form-group col-xs-6 col-sm-4 col-md-3 col-lg-3 col-xl-3">
+                <label for="studyDateTo">data do</label>
+                <input type="date" class="form-control" id="studyDateTo">
+            </div>
+            <div class="input-group-btn">
+                <button class="btn btn-success" type="button" onclick="education_fields();"><span
+                        class="fa fa-plus" aria-hidden="true"></span></button>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <%--<div class="form-row">--%>
+        <%--<div class="form-group col-md-3">--%>
+        <%--<label for="schoolName">Uczelnia/kurs/szkolenie</label>--%>
+        <%--<input type="text" class="form-control" id="schoolName">--%>
+        <%--</div>--%>
+        <%--<div class="form-group col-md-3">--%>
+        <%--<label for="studySubject">przedmiot nauki</label>--%>
+        <%--<input type="tel" class="form-control" id="studySubject">--%>
+        <%--</div>--%>
+        <%--<div class="form-group col-md-3">--%>
+        <%--<label for="studyDateFrom">data od</label>--%>
+        <%--<input type="date" class="form-control" id="studyDateFrom">--%>
+        <%--</div>--%>
+        <%--<div class="form-group col-md-3">--%>
+        <%--<label for="studyDateTo">data do</label>--%>
+        <%--<input type="date" class="form-control" id="studyDateTo">--%>
+        <%--</div>--%>
+        <%--</div>--%>
 
-
+        <hr>
+        <h3 class="text-center">Praca</h3>
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <label for="schoolName3">Firma</label>
+                <input type="text" class="form-control" id="schoolName3">
+            </div>
+            <div class="form-group col-md-3">
+                <label for="studySubject3">stanowisko</label>
+                <input type="tel" class="form-control" id="studySubject3">
+            </div>
+            <div class="form-group col-md-3">
+                <label for="studyDateFrom3">data od</label>
+                <input type="date" class="form-control" id="studyDateFrom3">
+            </div>
+            <div class="form-group col-md-3">
+                <label for="studyDateTo3">data do</label>
+                <input type="date" class="form-control" id="studyDateTo3">
+            </div>
         </div>
-        <div class="form-group col-md-6">
-            <label for="inputSurName">Nazwisko</label>
-            <input type="text" class="form-control" id="inputSurName" placeholder="Kowalski">
-        </div>
-    </div>
-
-    <div class="form-row">
-        <div class="form-group col-md-4">
-            <label for="inputAddress">Miejsce zamieszkania</label>
-            <input type="text" class="form-control" id="inputAddress" placeholder="Warszawa">
-        </div>
-        <div class="form-group col-md-4">
-            <label for="inputAddress2">Numer telefonu</label>
-            <input type="tel" class="form-control" id="inputAddress2" placeholder="888999000">
-        </div>
-        <div class="form-group col-md-4">
-            <label for="inputCity">Data urodzenia</label>
-            <input type="datetime-local" class="form-control" id="inputCity" placeholder="15-03-1975">
-        </div>
-    </div>
-    <%--<div class="form-group col-md-4">--%>
-    <%--<label for="inputState">State</label>--%>
-    <%--<select id="inputState" class="form-control">--%>
-    <%--<option selected>Choose...</option>--%>
-    <%--<option>...</option>--%>
-    <%--</select>--%>
-    <%--</div>--%>
-    <%--<div class="form-group col-md-2">--%>
-    <%--<label for="inputZip">Zip</label>--%>
-    <%--<input type="text" class="form-control" id="inputZip">--%>
-    <%--</div>--%>
-    <%--</div>--%>
-    <%--<div class="form-group">--%>
-    <%--<div class="form-check">--%>
-    <%--<input class="form-check-input" type="checkbox" id="gridCheck">--%>
-    <%--<label class="form-check-label" for="gridCheck">--%>
-    <%--Check me out--%>
-    <%--</label>--%>
-    <%--</div>--%>
-    <button type="submit" class="btn btn-primary">Sign in</button>
-    </form:form>
-</form>
+    </form>
+</div>
+<button type="submit" class="btn btn-primary align-content-center">Zatwierdz i wygeneruj</button>
 <a href="/result">result page</a>
+
+
 <!-- Bootstrap core JavaScript -->
 <script src="${pageContext.request.contextPath}/lib/vendor/jquery/jquery.min.js"></script>
-<script src="${pageContext.request.contextPath}/lib/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="${pageContext.request.contextPath}/lib/vendor/bootstrap/js/bootstrap.js"></script>
 
 <!-- Plugin JavaScript -->
 <script src="${pageContext.request.contextPath}/lib/vendor/jquery-easing/jquery.easing.min.js"></script>
