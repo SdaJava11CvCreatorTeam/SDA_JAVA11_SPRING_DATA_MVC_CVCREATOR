@@ -1,17 +1,25 @@
+<%@ page import="java.nio.charset.Charset" %>
+<%@ page import="java.io.BufferedReader" %>
+<%@ page import="jdk.internal.util.xml.impl.ReaderUTF8" %>
+<%@ page import="java.nio.charset.StandardCharsets" %>
+<%@ page import="javafx.util.converter.ByteStringConverter" %>
+<%@ page import="java.io.InputStream" %>
+<%@ page import="java.io.InputStreamReader" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
     <title>result</title>
 
     <!-- Meta -->
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Responsive Resume Template">
     <meta name="author" content="Xiaoying Riley at 3rd Wave Media">
 
     <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Alegreya:400,500,700,800,900" rel="stylesheet">
 
     <!-- FontAwesome JS-->
     <script defer src="https://use.fontawesome.com/releases/v5.1.1/js/all.js"
@@ -27,41 +35,45 @@
 <body>
 
 <%
-    response.setCharacterEncoding("UTF-8");
-    request.setCharacterEncoding("UTF-8");
-
+    request.setCharacterEncoding(StandardCharsets.UTF_8.displayName());
     String firstName = request.getParameter("firstName");
     String lastName = request.getParameter("lastName");
     String email = request.getParameter("email");
     String adress = request.getParameter("adress");
     String tel = request.getParameter("tel");
     String dateOfBirth = request.getParameter("dateOfBirth");
-    String schoolName = request.getParameter("Major[]");
-    String studySubject = request.getParameter("Schoolname[]");
+    String schoolName = request.getParameter("schoolName");
+    String studySubject = request.getParameter("studySubject");
     String studyDateFrom = request.getParameter("studyDateFrom");
     String studyDateTo = request.getParameter("studyDateTo");
+    String schoolName1 = request.getParameter("schoolName2");
+    String studySubject1 = request.getParameter("studySubject2");
+    String studyDateFrom1 = request.getParameter("studyDateFrom2");
+    String studyDateTo1 = request.getParameter("studyDateTo2");
     String jobCompany = request.getParameter("jobCompany");
     String occupance = request.getParameter("occupance");
     String jobDateFrom = request.getParameter("jobDateFrom");
     String jobDateTo = request.getParameter("jobDateTo");
     String description = request.getParameter("description");
 
-
-
-
 %>
 <article class="resume-wrapper text-center position-relative">
     <div class="resume-wrapper-inner mx-auto text-left bg-white shadow-lg">
         <header class="resume-header pt-4 pt-md-0">
             <div class="media flex-column flex-md-row">
-                <img class="mr-3 img-fluid picture mx-auto" src="assets/images/profile.jpg" alt="">
+                <img class="mr-3 img-fluid picture mx-auto"
+                     src="${pageContext.request.contextPath}/lib/assets/images/profile.jpg" alt="">
                 <div class="media-body p-4 d-flex flex-column flex-md-row mx-auto mx-lg-0">
-                <div class="primary-info">
-                        <h1 class="name mt-0 mb-1 text-white text-uppercase text-uppercase"><%=firstName%> <%=lastName%></h1>
+                    <div class="primary-info">
+                        <div id="result">
+                            <h3>${requestScope["message"]}</h3>
+                        </div>
+                        <h1 class="name mt-0 mb-1 text-white text-uppercase text-uppercase"><%=firstName%> <%=lastName%>
+                        </h1>
                         <div class="title mb-3"><%=occupance%></div>
                         <ul class="list-unstyled">
-                            <li class="mb-2"><a href="#"><i class="far fa-envelope fa-fw mr-2" data-fa-transform="grow-3"></i><%=email%></a></li>
-                            <li class="mb-2"><a href="#"><i class="fas fa-mobile-alt fa-fw mr-2" data-fa-transform="grow-6"></i><%=tel%></a></li>
+                            <li class="mb-2"><a href="#"><i class="far fa-envelope fa-fw mr-2"data-fa-transform="grow-3"></i><%=email%></a></li>
+                            <li class="mb-2"><a href="#"><i class="fas fa-mobile-alt fa-fw mr-2"data-fa-transform="grow-6"></i><%=tel%></a></li>
                             <li class="mb-2"><a href="#"><i class="fa fa-home fa-fw mr-2"></i><%=adress%></a></li>
                             <li class="mb-2"><a href="#"><i class="fa fa-calendar fa-fw mr-2"></i><%=dateOfBirth%></a></li>
                         </ul>
@@ -89,20 +101,23 @@
             <div class="row">
                 <div class="col-lg-9">
                     <section class="resume-section experience-section mb-5">
-                        <h2 class="resume-section-title text-uppercase font-weight-bold pb-3 mb-3">Doświadczenie zawodowe</h2>
+                        <h2 class="resume-section-title text-uppercase font-weight-bold pb-3 mb-3">Doświadczenie
+                            zawodowe</h2>
                         <div class="resume-section-content">
                             <div class="resume-timeline position-relative">
                                 <article class="resume-timeline-item position-relative pb-5">
 
                                     <div class="resume-timeline-item-header mb-2">
                                         <div class="d-flex flex-column flex-md-row">
-                                            <h3 class="resume-position-title font-weight-bold mb-1"><%=occupance%></h3>
-                                            <div class="resume-company-name ml-auto"><%=jobCompany%></div>
+                                            <h3 class="resume-position-title font-weight-bold mb-1"><%=occupance%>
+                                            </h3>
+                                            <div class="resume-company-name ml-auto"><%=jobCompany%>
+                                            </div>
                                         </div><!--//row-->
-                                        <div class="resume-position-time"><%=jobDateFrom%> - <%=jobDateTo%></div>
+                                        <div class="resume-position-time"><%=jobDateFrom%> - <%=jobDateTo%>
+                                        </div>
                                     </div><!--//resume-timeline-item-header-->
-                                    <div class="resume-timeline-item-desc">
-                                        <p><%=description%></p>
+                                    <div class="resume-timeline-item-desc"><%=description%>
                                     </div><!--//resume-timeline-item-desc-->
                                 </article><!--//resume-timeline-item-->
                             </div><!--//resume-timeline-->
@@ -117,9 +132,20 @@
                         <div class="resume-section-content">
                             <ul class="list-unstyled">
                                 <li class="mb-2">
-                                    <div class="resume-degree font-weight-bold"><%=studySubject%></div>
-                                    <div class="resume-degree-org"><%=schoolName%></div>
-                                    <div class="resume-degree-time"><%=studyDateFrom%> - <%=studyDateTo%></div>
+                                    <div class="resume-degree font-weight-bold"><%=studySubject%>
+                                    </div>
+                                    <div class="resume-degree-org"><%=schoolName%>
+                                    </div>
+                                    <div class="resume-degree-time"><%=studyDateFrom%> - <%=studyDateTo%>
+                                    </div>
+                                </li>
+                                <li class="mb-2">
+                                    <div class="resume-degree font-weight-bold"><%=studySubject1%>
+                                    </div>
+                                    <div class="resume-degree-org"><%=schoolName1%>
+                                    </div>
+                                    <div class="resume-degree-time"><%=studyDateFrom1%> - <%=studyDateTo1%>
+                                    </div>
                                 </li>
                             </ul>
                         </div>

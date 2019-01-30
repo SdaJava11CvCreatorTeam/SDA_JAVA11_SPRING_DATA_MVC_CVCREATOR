@@ -4294,19 +4294,19 @@ function education_fields() {
     divtest.innerHTML = ' <div class="form-row">\n' +
         '    <div class="form-group col-xs-6 col-sm-4 col-md-3 col-lg-3 col-xl-3">\n' +
         '        <label for="Schoolname">Uczelnia/Kurs</label>\n' +
-        '        <input type="text" class="form-control" id="Schoolname" name="Major[]" value="">\n' +
+        '        <input type="text" class="form-control" id="Schoolname" name="Schoolname'+room+'" value="">\n' +
         '    </div>\n' +
         '    <div class="form-group col-xs-6 col-sm-4 col-md-3 col-lg-3 col-xl-3">\n' +
         '        <label for="studySubject">przedmiot nauki</label>\n' +
-        '        <input type="text" class="form-control" id="studySubject" name="Schoolname[]" value="">\n' +
+        '        <input type="text" class="form-control" id="studySubject" name="studySubject'+room+'" value="">\n' +
         '    </div>\n' +
         '    <div class="form-group col-xs-6 col-sm-4 col-md-3 col-lg-3 col-xl-3">\n' +
         '        <label for="studyDateFrom">data od</label>\n' +
-        '        <input type="date" class="form-control" id="studyDateFrom">\n' +
+        '        <input type="date" class="form-control" id="studyDateFrom'+room+'">\n' +
         '    </div>\n' +
         '    <div class="form-group col-xs-6 col-sm-4 col-md-3 col-lg-3 col-xl-3">\n' +
         '        <label for="studyDateTo">data do</label>\n' +
-        '        <input type="date" class="form-control" id="studyDateTo">\n' +
+        '        <input type="date" class="form-control" id="studyDateTo'+room+'">\n' +
         '    </div>\n' +
         '    <div class="input-group-btn">\n' +
         '    </div>\n' +

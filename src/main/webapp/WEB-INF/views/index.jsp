@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html lang="en">
+<html lang="pl">
 
 <head>
 
@@ -147,7 +147,6 @@
                     </li>
                 </ul>
             </div>
-
         </div>
     </div>
 </footer>

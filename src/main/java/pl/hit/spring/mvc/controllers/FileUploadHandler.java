@@ -12,7 +12,7 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 public class FileUploadHandler extends HttpServlet {
-    private final String UPLOAD_DIRECTORY = "C:\\Users\\matel\\Desktop\\photoCV";
+    private final String UPLOAD_DIRECTORY = "C:\\desktop";
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -42,7 +42,7 @@ public class FileUploadHandler extends HttpServlet {
                     "Sorry this Servlet only handles file upload request");
         }
 
-        request.getRequestDispatcher("/result.jsp").forward(request, response);
+       request.getRequestDispatcher("/result.jsp").forward(request, response);
 
     }
 
