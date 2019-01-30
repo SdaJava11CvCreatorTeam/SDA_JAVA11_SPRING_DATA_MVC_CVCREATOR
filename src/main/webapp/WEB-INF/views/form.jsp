@@ -69,12 +69,12 @@
         </div>
         <div class="form-row">
             <div class="form-group col-xs-6 col-sm-4 col-md-3 col-lg-3 col-xl-3">
-                <label for="Schoolname">Uczelnia/Kurs</label>
-                <input type="text" class="form-control" id="Schoolname" name="Major[]" value="">
+                <label for="schoolName">Uczelnia/Kurs</label>
+                <input type="text" class="form-control" id="schoolName" name="schoolName" value="">
             </div>
             <div class="form-group col-xs-6 col-sm-4 col-md-3 col-lg-3 col-xl-3">
                 <label for="studySubject">przedmiot nauki</label>
-                <input type="text" class="form-control" id="studySubject" name="Schoolname[]" value="">
+                <input type="text" class="form-control" id="studySubject" name="studySubject" value="">
             </div>
             <div class="form-group col-xs-6 col-sm-4 col-md-3 col-lg-3 col-xl-3">
                 <label for="studyDateFrom">data od</label>
