@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!doctype html>
 <html lang="pl">
 <head>
@@ -32,19 +33,19 @@
 <h1 class="text-center">Formularz bez rejestracji</h1>
 <hr class="style18">
 <div class="container">
-    <form name="testform" action="/result" method="post">
+    <form:form method="post" action="/result" modelAttribute="PersonDTO" >
         <div class="form-row">
             <div class="form-group col-md-4">
-                <label for="firstName">Imię</label>
-                <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Jan">
+                <form:label path="firstName">Imię</form:label>
+                <form:input path="firstName" type="text" class="form-control"  name="firstName" placeholder="Jan"/>
             </div>
             <div class="form-group col-md-4">
-                <label for="inputSurName">Nazwisko</label>
-                <input type="text" class="form-control" id="inputSurName" name="lastName" placeholder="Kowalski">
+                <form:label path="lastName">Nazwisko</form:label>
+                <form:input path="lastName" type="text" class="form-control" name="lastName" placeholder="Kowalski"/>
             </div>
             <div class="form-group col-md-4">
-                <label for="inputMail">Nazwisko</label>
-                <input type="email" class="form-control" id="inputMail" name="email" placeholder="Kowalski@mail.pl">
+                <form:label path="email">email</form:label>
+                <form:input path="email" type="email" class="form-control"  name="email" placeholder="Kowalski@mail.pl"/>
             </div>
         </div>
 
@@ -130,7 +131,7 @@
             </div>
         </div>
         <input type="submit" value="submit" name="submit" class="btn btn-primary align-content-center">
-    </form>
+    </form:form>
 </div>
 <a href="/result">result page</a>
 

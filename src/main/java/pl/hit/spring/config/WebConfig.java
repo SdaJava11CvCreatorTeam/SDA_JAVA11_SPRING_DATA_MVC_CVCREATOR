@@ -22,6 +22,10 @@ public class WebConfig implements WebMvcConfigurer {
         return resolver;
     }
 
+    @Bean
+    public SessionManager getSessionManager(){
+        return new SessionManager();
+    }
     /*@Bean
     public SessionInterceptor sessionInterceptor() {
         return new SessionInterceptor();
