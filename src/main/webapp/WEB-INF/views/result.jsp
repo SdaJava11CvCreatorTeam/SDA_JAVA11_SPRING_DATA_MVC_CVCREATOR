@@ -36,9 +36,6 @@
 
 <%
     request.setCharacterEncoding(StandardCharsets.UTF_8.displayName());
-    String firstName = request.getParameter("firstName");
-    String lastName = request.getParameter("lastName");
-    String email = request.getParameter("email");
     String adress = request.getParameter("adress");
     String tel = request.getParameter("tel");
     String dateOfBirth = request.getParameter("dateOfBirth");
@@ -68,12 +65,12 @@
                      src="${pageContext.request.contextPath}/lib/assets/images/profile.jpg" alt="">
                 <div class="media-body p-4 d-flex flex-column flex-md-row mx-auto mx-lg-0">
                     <div class="primary-info">
-                        <h1 class="name mt-0 mb-1 text-white text-uppercase text-uppercase"><%=firstName%> <%=lastName%>
+                        <h1 class="name mt-0 mb-1 text-white text-uppercase text-uppercase">${firstName} ${lastName}
                         </h1>
                         <div class="title mb-3"><%=occupance%></div>
                         <ul class="list-unstyled">
                             <li class="mb-2"><a href="#"><i class="far fa-envelope fa-fw mr-2"
-                                                            data-fa-transform="grow-3"></i><%=email%>
+                                                            data-fa-transform="grow-3"></i>${email}
                             </a></li>
                             <li class="mb-2"><a href="#"><i class="fas fa-mobile-alt fa-fw mr-2"
                                                             data-fa-transform="grow-6"></i><%=tel%>

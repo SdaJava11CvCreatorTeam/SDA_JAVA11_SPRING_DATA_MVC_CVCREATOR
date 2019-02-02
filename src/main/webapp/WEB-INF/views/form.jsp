@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!doctype html>
 <html lang="pl">
 <head>
@@ -32,21 +33,21 @@
 <h1 class="text-center">Formularz bez rejestracji</h1>
 <hr class="style18">
 <div class="container">
-    <form name="testform" action="/result" method="post">
+    <form:form method="post" action="/result" modelAttribute="PersonDTO" >
         <div class="form-row">
-            <div class="form-group col-md-3">
-                <label for="firstName">Imię</label>
-                <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Jan">
+            <div class="form-group col-md-4">
+                <form:label path="firstName">Imię</form:label>
+                <form:input path="firstName" type="text" class="form-control"  name="firstName" placeholder="Jan"/>
             </div>
-            <div class="form-group col-md-3">
-                <label for="inputSurName">Nazwisko</label>
-                <input type="text" class="form-control" id="inputSurName" name="lastName" placeholder="Kowalski">
+            <div class="form-group col-md-4">
+                <form:label path="lastName">Nazwisko</form:label>
+                <form:input path="lastName" type="text" class="form-control" name="lastName" placeholder="Kowalski"/>
             </div>
-            <div class="form-group col-md-3">
-                <label for="inputMail">Adres e-mail</label>
-                <input type="email" class="form-control" id="inputMail" name="email" placeholder="Kowalski@mail.pl">
+            <div class="form-group col-md-4">
+                <form:label path="email">email</form:label>
+                <form:input path="email" type="email" class="form-control"  name="email" placeholder="Kowalski@mail.pl"/>
             </div>
-            <div action="some.jsp col-md-3">
+<div action="some.jsp col-md-3">
                 <label for="Płeć">Płeć</label>
                 <div></div>
                 <select name="Płeć" id="Płeć">
@@ -72,10 +73,8 @@
                 <label for="dob">Data urodzenia</label>
                 <input type="date" class="form-control" id="dob" name="dateOfBirth">
             </div>
-            <div>
-            </div>
         </div>
-        <div class="form-row">
+<div class="form-row">
            <div class="fab fa-linkedin-in fa-fw col-md-4">
                 <label for="LinkedIn"></label>
                 <input type="text" class = "form-control" id="linkedin" name="linkedin" placeholder="linkedin.com/in/stevedoe">
@@ -89,16 +88,6 @@
                 <input type="text" class = "form-control" id="yourWebsite" name="yourWebsite" placeholder="www.myWebsite.com">
             </div>
         </div>
-        <hr>
-        <h3 class ="text-center">O sobie</h3>
-        <div id="aboutMe">
-            <div class="form-group col-md-13">
-            <label for="schoolName">Parę słów o sobie</label>
-            <input type="text" class="form-control" id="aboutMe" name="aboutMe" value="">
-            </div>
-        </div>
-
-
         <hr>
         <h3 class="text-center">Edukacja</h3>
         <div id="education_fields">
@@ -128,22 +117,22 @@
             <div class="clear"></div>
         </div>
         <%--<div class="form-row">--%>
-        <%--<div class="form-group col-md-3">--%>
-        <%--<label for="schoolName">Uczelnia/kurs/szkolenie</label>--%>
-        <%--<input type="text" class="form-control" id="schoolName">--%>
-        <%--</div>--%>
-        <%--<div class="form-group col-md-3">--%>
-        <%--<label for="studySubject">przedmiot nauki</label>--%>
-        <%--<input type="tel" class="form-control" id="studySubject">--%>
-        <%--</div>--%>
-        <%--<div class="form-group col-md-3">--%>
-        <%--<label for="studyDateFrom">data od</label>--%>
-        <%--<input type="date" class="form-control" id="studyDateFrom">--%>
-        <%--</div>--%>
-        <%--<div class="form-group col-md-3">--%>
-        <%--<label for="studyDateTo">data do</label>--%>
-        <%--<input type="date" class="form-control" id="studyDateTo">--%>
-        <%--</div>--%>
+            <%--<div class="form-group col-md-3">--%>
+                <%--<label for="schoolName">Uczelnia/kurs/szkolenie</label>--%>
+                <%--<input type="text" class="form-control" id="schoolName">--%>
+            <%--</div>--%>
+            <%--<div class="form-group col-md-3">--%>
+                <%--<label for="studySubject">przedmiot nauki</label>--%>
+                <%--<input type="tel" class="form-control" id="studySubject">--%>
+            <%--</div>--%>
+            <%--<div class="form-group col-md-3">--%>
+                <%--<label for="studyDateFrom">data od</label>--%>
+                <%--<input type="date" class="form-control" id="studyDateFrom">--%>
+            <%--</div>--%>
+            <%--<div class="form-group col-md-3">--%>
+                <%--<label for="studyDateTo">data do</label>--%>
+                <%--<input type="date" class="form-control" id="studyDateTo">--%>
+            <%--</div>--%>
         <%--</div>--%>
 
         <hr>
@@ -165,7 +154,7 @@
                 <label for="studyDateTo3">data do</label>
                 <input type="date" class="form-control" id="studyDateTo3" name="jobDateTo">
             </div>
-            <div class="form-group col-md-12">
+<div class="form-group col-md-12">
                 <label for="aboutJob">Opis stanowiska</label>
                 <input type="text" class="form-control" id="aboutJob" name="description">
             </div>
@@ -183,13 +172,8 @@
             <button class="btn btn-success" type="button" onclick="language_fields();"><span
                     class="fa fa-plus" aria-hidden="true"></span></button>
         </div>
-        <div class="clear"></div>
-        </div>
-
-
-
         <input type="submit" value="submit" name="submit" class="btn btn-primary align-content-center">
-    </form>
+    </form:form>
 </div>
 <a href="/result">result page</a>
 
