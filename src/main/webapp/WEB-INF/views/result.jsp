@@ -55,7 +55,10 @@
     String jobDateFrom = request.getParameter("jobDateFrom");
     String jobDateTo = request.getParameter("jobDateTo");
     String description = request.getParameter("description");
-
+    String linkedin = request.getParameter("linkedin");
+    String gitHub = request.getParameter("gitHub");
+    String yourWebsite = request.getParameter("yourWebsite");
+    String aboutMe = request.getParameter("aboutMe");
 %>
 <article class="resume-wrapper text-center position-relative">
     <div class="resume-wrapper-inner mx-auto text-left bg-white shadow-lg">
@@ -65,44 +68,46 @@
                      src="${pageContext.request.contextPath}/lib/assets/images/profile.jpg" alt="">
                 <div class="media-body p-4 d-flex flex-column flex-md-row mx-auto mx-lg-0">
                     <div class="primary-info">
-                        <div id="result">
-                            <h3>${requestScope["message"]}</h3>
-                        </div>
                         <h1 class="name mt-0 mb-1 text-white text-uppercase text-uppercase"><%=firstName%> <%=lastName%>
                         </h1>
                         <div class="title mb-3"><%=occupance%></div>
                         <ul class="list-unstyled">
-                            <li class="mb-2"><a href="#"><i class="far fa-envelope fa-fw mr-2"data-fa-transform="grow-3"></i><%=email%></a></li>
-                            <li class="mb-2"><a href="#"><i class="fas fa-mobile-alt fa-fw mr-2"data-fa-transform="grow-6"></i><%=tel%></a></li>
-                            <li class="mb-2"><a href="#"><i class="fa fa-home fa-fw mr-2"></i><%=adress%></a></li>
-                            <li class="mb-2"><a href="#"><i class="fa fa-calendar fa-fw mr-2"></i><%=dateOfBirth%></a></li>
+                            <li class="mb-2"><a href="#"><i class="far fa-envelope fa-fw mr-2"
+                                                            data-fa-transform="grow-3"></i><%=email%>
+                            </a></li>
+                            <li class="mb-2"><a href="#"><i class="fas fa-mobile-alt fa-fw mr-2"
+                                                            data-fa-transform="grow-6"></i><%=tel%>
+                            </a></li>
+                            <li class="mb-2"><a href="#"><i class="fa fa-home fa-fw mr-2"></i><%=adress%>
+                            </a></li>
+                            <li class="mb-2"><a href="#"><i class="fa fa-calendar fa-fw mr-2"></i><%=dateOfBirth%>
+                            </a></li>
                         </ul>
                     </div><!--//primary-info-->
                     <div class="secondary-info ml-md-auto mt-2">
                         <ul class="resume-social list-unstyled">
-                            <li class="mb-3"><a href="#"><span class="fa-container text-center mr-2"><i
-                                    class="fab fa-linkedin-in fa-fw"></i></span>linkedin.com/in/stevedoe</a></li>
-                            <li class="mb-3"><a href="#"><span class="fa-container text-center mr-2"><i
-                                    class="fab fa-github-alt fa-fw"></i></span>github.com/username</a></li>
-                            <li><a href="#"><span class="fa-container text-center mr-2"><i
-                                    class="fas fa-globe"></i></span>yourwebsite.com</a></li>
-                        </ul>
+                            <li class="mb-3"><a href="<%=linkedin%>"><span class="fa-container text-center mr-2"><i
+                                    class="fab fa-linkedin-in fa-fw"></i></span><%=linkedin%></a></li>
+                            <li class="mb-3"><a href="<%=gitHub%>"><span class="fa-container text-center mr-2"><i
+                                    class="fab fa-github-alt fa-fw"></i></span><%=gitHub%></a></li>
+                            <li class="mb-3"> <a href="<%=yourWebsite%>"><span class="fa-container text-center mr-2"><i
+                                    class="fas fa-globe"></i></span><%=yourWebsite%></a></li>
                     </div><!--//secondary-info-->
                 </div><!--//media-body-->
             </div><!--//media-->
         </header>
         <div class="resume-body p-5">
             <section class="resume-section summary-section mb-5">
-                <h2 class="resume-section-title text-uppercase font-weight-bold pb-3 mb-3">Podsumowanie pracy</h2>
+                <h2 class="resume-section-title text-uppercase font-weight-bold pb-3 mb-3">Some about <%=firstName%></h2>
                 <div class="resume-section-content">
-                    <p class="mb-0">Summarise your career here.</p>
+                    <p class="mb-0"><%=aboutMe%></p>
                 </div>
             </section><!--//summary-section-->
             <div class="row">
                 <div class="col-lg-9">
                     <section class="resume-section experience-section mb-5">
-                        <h2 class="resume-section-title text-uppercase font-weight-bold pb-3 mb-3">Doświadczenie
-                            zawodowe</h2>
+                        <h2 class="resume-section-title text-uppercase font-weight-bold pb-3 mb-3">Experience
+                            </h2>
                         <div class="resume-section-content">
                             <div class="resume-timeline position-relative">
                                 <article class="resume-timeline-item position-relative pb-5">
@@ -117,7 +122,8 @@
                                         <div class="resume-position-time"><%=jobDateFrom%> - <%=jobDateTo%>
                                         </div>
                                     </div><!--//resume-timeline-item-header-->
-                                    <div class="resume-timeline-item-desc"><%=description%>
+                                    <div class="resume-timeline-item-desc">
+                                        <p><%=description%></p>
                                     </div><!--//resume-timeline-item-desc-->
                                 </article><!--//resume-timeline-item-->
                             </div><!--//resume-timeline-->
