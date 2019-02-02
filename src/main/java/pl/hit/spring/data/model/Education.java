@@ -30,6 +30,8 @@ public class Education {
     @Column(name = "endYear")
     private String endYear;
 
+    public Education() {}
+
     public Education(int idEducation, Person idPerson, String college, String direction, String startYear, String endYear) {
         this.idEducation = idEducation;
         this.idPerson = idPerson;

@@ -31,6 +31,8 @@ public class Address {
     @Column(name = "city")
     private String city;
 
+    public Address() {}
+
     public Address(Person idPerson, String street, int houseNumber, int apartmentNumber, String postCode, String city) {
         this.idPerson = idPerson;
         this.street = street;
@@ -94,5 +96,18 @@ public class Address {
 
     public void setCity(String city) {
         this.city = city;
+    }
+
+    @Override
+    public String toString() {
+        return "Address{" +
+                "idAddress=" + idAddress +
+                ", idPerson=" + idPerson +
+                ", street='" + street + '\'' +
+                ", houseNumber=" + houseNumber +
+                ", apartmentNumber=" + apartmentNumber +
+                ", postCode='" + postCode + '\'' +
+                ", city='" + city + '\'' +
+                '}';
     }
 }

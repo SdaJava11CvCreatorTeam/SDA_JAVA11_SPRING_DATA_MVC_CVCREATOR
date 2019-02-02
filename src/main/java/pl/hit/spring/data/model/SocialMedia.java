@@ -23,6 +23,8 @@ public class SocialMedia {
     @Column(name = "link")
     private String link;
 
+    public SocialMedia() {}
+
     public SocialMedia(Person idPerson, String name, String link) {
         this.idPerson = idPerson;
         this.name = name;

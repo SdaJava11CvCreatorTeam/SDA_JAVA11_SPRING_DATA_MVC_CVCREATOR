@@ -56,6 +56,8 @@ public class Person {
     @OneToOne(mappedBy = "idPerson")
     private Address idAddress;
 
+    public Person() {}
+
     public Person(User idUser, String firstName, String lastName, Date dateOfBirth, boolean gender, int phone,
                   String email, String about, Set<Experience> experience, Set<Education> education, Set<Skill> skill,
                   Set<SocialMedia> socialMedia, Set<Language> language, Address idAddress) {
@@ -75,11 +77,11 @@ public class Person {
         this.idAddress = idAddress;
     }
 
-    public int getPerson() {
+    public int getIdPerson() {
         return idPerson;
     }
 
-    public void setPerson(int idPerson) {
+    public void setIdPerson(int idPerson) {
         this.idPerson = idPerson;
     }
 
@@ -87,8 +89,8 @@ public class Person {
         return user;
     }
 
-    public void setIdUser(User idUser) {
-        this.user = idUser;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public String getFirstName() {
@@ -193,5 +195,26 @@ public class Person {
 
     public void setIdAddress(Address idAddress) {
         this.idAddress = idAddress;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "idPerson=" + idPerson +
+                ", user=" + user +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", dateOfBirth=" + dateOfBirth +
+                ", gender=" + gender +
+                ", phone=" + phone +
+                ", email='" + email + '\'' +
+                ", about='" + about + '\'' +
+                ", experience=" + experience +
+                ", education=" + education +
+                ", skill=" + skill +
+                ", socialMedia=" + socialMedia +
+                ", language=" + language +
+                ", idAddress=" + idAddress +
+                '}';
     }
 }

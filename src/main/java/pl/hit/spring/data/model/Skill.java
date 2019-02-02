@@ -22,6 +22,8 @@ public class Skill {
     @Column(name = "skillLevel")
     private int skillLevel;
 
+    public Skill() {}
+
     public Skill(int idSkill, Person idPerson, String skillName, int skillLevel) {
         this.idSkill = idSkill;
         this.idPerson = idPerson;

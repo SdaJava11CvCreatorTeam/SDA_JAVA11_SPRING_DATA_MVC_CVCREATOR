@@ -18,6 +18,8 @@ public class Responsibility {
     @Column(name = "resp")
     private String resp;
 
+    public Responsibility() {}
+
     public Responsibility(int idResponsibility, Experience idExperience, String resp) {
         this.idResponsibility = idResponsibility;
         this.idExperience = idExperience;
@@ -46,5 +48,14 @@ public class Responsibility {
 
     public void setResp(String resp) {
         this.resp = resp;
+    }
+
+    @Override
+    public String toString() {
+        return "Responsibility{" +
+                "idResponsibility=" + idResponsibility +
+                ", idExperience=" + idExperience +
+                ", resp='" + resp + '\'' +
+                '}';
     }
 }
