@@ -44,6 +44,8 @@ public class Experience {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "idExperience")
     private Set<Responsibility> responsibility = new HashSet<>();
 
+    public Experience() {}
+
     public Experience(Person idPerson, String startYear, String endYear, String company, String location,
                       String jobTitle, String description) {
         this.idPerson = idPerson;
@@ -126,4 +128,6 @@ public class Experience {
     public void setResponsibility(Set<Responsibility> responsibility) {
         this.responsibility = responsibility;
     }
+
+
 }

@@ -22,6 +22,8 @@ public class Language {
     @Column(name = "level")
     private String level;
 
+    public Language() {}
+
     public Language(Person idPerson, String name, String level) {
         this.idPerson = idPerson;
         this.name = name;
