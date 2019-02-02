@@ -4247,3 +4247,75 @@
 
 })));
 //# sourceMappingURL=bootstrap.js.map
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * ------------------------------------------------------------------------
+ * My code ################################################################################################################################
+ * ------------------------------------------------------------------------
+ */
+
+var room = 1;
+function education_fields() {
+
+    room++;
+    var objTo = document.getElementById('education_fields')
+    var divtest = document.createElement("div");
+    divtest.setAttribute("class", "form-group removeclass"+room);
+    var rdiv = 'removeclass'+room;
+    divtest.innerHTML = ' <div class="form-row">\n' +
+        '    <div class="form-group col-xs-6 col-sm-4 col-md-3 col-lg-3 col-xl-3">\n' +
+        '        <label for="Schoolname">Uczelnia/Kurs</label>\n' +
+        '        <input type="text" class="form-control" id="Schoolname" name="Schoolname'+room+'" value="">\n' +
+        '    </div>\n' +
+        '    <div class="form-group col-xs-6 col-sm-4 col-md-3 col-lg-3 col-xl-3">\n' +
+        '        <label for="studySubject">przedmiot nauki</label>\n' +
+        '        <input type="text" class="form-control" id="studySubject" name="studySubject'+room+'" value="">\n' +
+        '    </div>\n' +
+        '    <div class="form-group col-xs-6 col-sm-4 col-md-3 col-lg-3 col-xl-3">\n' +
+        '        <label for="studyDateFrom">data od</label>\n' +
+        '        <input type="date" class="form-control" id="studyDateFrom'+room+'">\n' +
+        '    </div>\n' +
+        '    <div class="form-group col-xs-6 col-sm-4 col-md-3 col-lg-3 col-xl-3">\n' +
+        '        <label for="studyDateTo">data do</label>\n' +
+        '        <input type="date" class="form-control" id="studyDateTo'+room+'">\n' +
+        '    </div>\n' +
+        '    <div class="input-group-btn">\n' +
+        '    </div>\n' +
+        '    <div class="clear"></div>\n' +
+        '</div>' +
+        '<button class="btn btn-danger" type="button" onclick="remove_education_fields('+ room +');"> <span class="fa fa-minus" aria-hidden="true"></span> </button></div></div></div></div><div class="clear"></div>';
+
+    objTo.appendChild(divtest)
+}
+function remove_education_fields(rid) {
+    $('.removeclass'+rid).remove();
+}

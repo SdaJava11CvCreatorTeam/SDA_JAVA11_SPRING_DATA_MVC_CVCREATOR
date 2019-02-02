@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html lang="en">
+<html lang="pl">
 
 <head>
 
@@ -106,50 +106,47 @@
 </section>
 
 <!-- Footer -->
-<footer>
+<footer class="bg-dark">
     <div class="container">
-        <span>Kod źrudłowy:
+        <p class="text-center text-white">Kod źródłowy:
         <a href="https://github.com/SdaJava11CvCreatorTeam/SDA_JAVA11_SPRING_DATA_MVC_CVCREATOR">
-                            <i class="fab fa-github"></i>
-                        </a></span>
+                            <i class="fab fa-github-square fa-500px"></i>
+                        </a></p>
         <div class="row">
             <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
-                <ul class="list-inline social-buttons">
-                    <li class="list-inline-item">
+                <ul class="list-inline">
+                    <li class="list-inline-item text-white">
                         Łukasz Kwecko
-                    </li>
-                    <li class="list-inline-item">
                         <a href="#">
-                            <i class="fab fa-linkedin-in align-content-center"></i>
+                            <i class="fab fa-linkedin"></i>
                         </a>
                     </li>
                 </ul>
             </div>
             <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
-                <ul class="list-inline social-buttons">
-                    <li class="list-inline-item">
+                <ul class="list-inline">
+                    <li class="list-inline-item text-white">
                         Mateusz Petrykowski
                     </li>
                     <li class="list-inline-item">
                         <a href="#">
-                            <i class="fab fa-linkedin-in"></i>
+                            <i class="fab fa-linkedin"></i>
                         </a>
                     </li>
                 </ul>
             </div>
             <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
-                <ul class="list-inline social-buttons">
-                    <li class="list-inline-item">
-                        Mariusz Mariusz
+                <ul class="list-inline">
+                    <li class="list-inline-item text-white">
+                        Mariusz Guść
                     </li>
                     <li class="list-inline-item">
                         <a href="#">
-                            <i class="fab fa-linkedin-in"></i>
+                            <i class="fab fa-linkedin"></i>
                         </a>
                     </li>
                 </ul>
             </div>
-
         </div>
     </div>
 </footer>
