@@ -58,6 +58,7 @@
                             </a></li>
                             <li class="mb-2"><a href="#"><i class="fa fa-calendar fa-fw mr-2"></i>${dateOfBirth}
                             </a></li>
+                            <br>
                         </ul>
                     </div><!--//primary-info-->
                     <div class="secondary-info ml-md-auto mt-2">
@@ -68,6 +69,7 @@
                                     class="fab fa-github-alt fa-fw"></i></span>${github}</a></li>
                             <li class="mb-3"> <a href="${yourWebsite}"><span class="fa-container text-center mr-2"><i
                                     class="fas fa-globe"></i></span>${yourWebsite}</a></li>
+                        </ul>
                     </div><!--//secondary-info-->
                 </div><!--//media-body-->
             </div><!--//media-->

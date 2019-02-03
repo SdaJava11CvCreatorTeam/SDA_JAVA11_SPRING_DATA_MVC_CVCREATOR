@@ -44,7 +44,7 @@
                 <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" href="/login">Zaloguj się</a>
                 </li>
-                <li>
+                <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" href="/register">Zarejestruj się</a>
                 </li>
             </ul>
@@ -58,7 +58,7 @@
         <div class="intro-text">
             <div class="intro-lead-in">Witaj w naszym kreatorze CV!</div>
             <div class="intro-heading text-uppercase">Dobrego dnia</div>
-            <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="/form">Form</a>
+            <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="/form">Generuj CV</a>
         </div>
     </div>
 </header>
