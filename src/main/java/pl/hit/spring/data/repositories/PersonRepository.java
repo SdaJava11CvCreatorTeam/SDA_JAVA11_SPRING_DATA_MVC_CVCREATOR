@@ -8,6 +8,12 @@ import pl.hit.spring.data.model.Person;
 @Repository
 public interface PersonRepository extends JpaRepository<Person, Integer> {
 
+    @Query(nativeQuery = true, value = "SET SQL_SAFE_UPDATES = 0")
+    void disableSafeMode();
+
+    @Query(nativeQuery = true, value = "SET SQL_SAFE_UPDATES = 1")
+    void enableSafeMode();
+
     @Query(nativeQuery = true, value = "SELECT idPerson FROM person WHERE user_idUser = ?")
     int getIdPerson(int idUser);
 
@@ -37,4 +43,7 @@ public interface PersonRepository extends JpaRepository<Person, Integer> {
 
     @Query(nativeQuery = true, value = "SELECT idAddress FROM person WHERE idPerson = ?")
     int getIdAddress(int idPerson);
+
+    @Query(nativeQuery = true, value = "UPDATE person SET firstName = ? WHERE idPerson = 1;")
+    void setFirstName(String newFirstName, int idPerson);
 }
