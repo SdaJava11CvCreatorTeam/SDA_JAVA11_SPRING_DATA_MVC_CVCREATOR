@@ -8,7 +8,7 @@
   Time: 09:06
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <!doctype html>
 <html lang="pl">
 <head>
@@ -22,38 +22,37 @@
     <title>sqlForm</title>
 </head>
 <body>
-    <h1 class="align-content-center">Dane użytkownika ${user.login}</h1>
+    <h1 class="align-content-center">Dane użytkownika ${person.user.login}</h1>
     <hr class="style18">
     <h3 class="align-content-center">Nie działa:</h3>
     <h3 class="align-content-center">- nie wyświetla daty</h3>
     <hr class="style11">
-
-    <form>
-        <%
-            Person person = (Person) request.getAttribute("person");
-        %>
+    <%
+        Person person = (Person) request.getAttribute("person");
+    %>
+    <form method="post" action="/sqlForm/<%=Integer.toString(person.getUser().getHashCode()).substring(1)%>/save">
         <h2 class="align-content-center">Dane podstawowe</h2>
         <hr class="style14">
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="firstName">Imię</label>
-                <input type="text" class="form-control" id="firstName" value=${person.firstName}>
+                <input type="text" class="form-control" id="firstName" name="newFirstName" value=${person.firstName}>
             </div>
             <div class="form-group col-md-6">
                 <label for="lastName">Nazwisko</label>
-                <input type="text" class="form-control" id="lastName" value=${person.lastName}>
+                <input type="text" class="form-control" id="lastName" name="newLastName" value=${person.lastName}>
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="dateOfBirth">Data urodzenia</label>
-                <input type="date" class="form-control" id="dateOfBirth" value=${person.dateOfBirth}>
+                <input type="date" class="form-control" id="dateOfBirth" name="newDateOfBirth" value=${person.dateOfBirth}>
             </div>
             <div class="form-group col-md-6">
                 <label for="gender">Płeć</label>
                 <select name="gender" id="gender">
-                    <option value="Mężczyzna">Mężczyzna</option>
-                    <option value="Kobieta">Kobieta</option>
+                    <option value="male">Mężczyzna</option>
+                    <option value="female">Kobieta</option>
                 </select>
             </div>
         </div>
@@ -63,24 +62,24 @@
                 <%
                     if (person.getPhone() == -1) {
                 %>
-                <input type="tel" class="form-control" id="phone">
+                <input type="tel" class="form-control" name="newPhone" id="phone">
                 <%
                     } else {
                 %>
-                <input type="tel" class="form-control" id="phone" value=${person.phone}>
+                <input type="tel" class="form-control" id="phone" name="newPhone" value=${person.phone}>
                 <%
                     }
                 %>
             </div>
             <div class="form-group col-md-6">
                 <label for="email">Adres e-Mail</label>
-                <input type="email" class="form-control" id="email" value=${person.email}>
+                <input type="email" class="form-control" id="email" name="newEmail" value=${person.email}>
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="about">O mnie</label>
-                <input type="text" class="form-control" id="about" value="<%=person.getAbout()%>">
+                <input type="text" class="form-control" id="about" name="newAbout" value="<%=person.getAbout()%>">
             </div>
         </div>
 
@@ -137,8 +136,7 @@
         <hr class="style14">
         <%
             Set<Experience> experienceSet = person.getExperience();
-            ArrayList<Experience> experienceArrayList = new ArrayList<>();
-            experienceArrayList.addAll(experienceSet);
+            ArrayList<Experience> experienceArrayList = new ArrayList<>(experienceSet);
 
             if (experienceArrayList.get(0).getJobTitle() != null) {
                 for (int i = 0; i < experienceArrayList.size(); i++) {
@@ -178,17 +176,17 @@
         </div>
         <%
             Set<Responsibility> responsibilitySet = experienceArrayList.get(i).getResponsibility();
-            ArrayList<Responsibility> responsibilityArrayList = new ArrayList<>();
-            responsibilityArrayList.addAll(responsibilitySet);
+            ArrayList<Responsibility> responsibilityArrayList = new ArrayList<>(responsibilitySet);
         %>
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="responsibility">Zakres osbowiązków</label>
                 <%
-                    for (int j = 0; j < responsibilityArrayList.size(); j++) {
+                    for (Responsibility responsibility : responsibilityArrayList) {
                 %>
-                <input type="text" class="form-control" id="responsibility" value="<%=responsibilityArrayList.get(j).getResp()%>">
-                <button type="submit" class="btn btn-primary">Usuń obowiązek</button>
+                <input type="text" class="form-control" id="responsibility"
+                       value="<%=responsibility.getResp()%>">
+                <button type="submit" class="btn btn-primary"> Usuń obowiązek</button>
                 <%
                     }
                 %>
@@ -246,8 +244,7 @@
         <hr class="style14">
         <%
             Set<Education> educationSet = person.getEducation();
-            ArrayList<Education> educationArrayList = new ArrayList<>();
-            educationArrayList.addAll(educationSet);
+            ArrayList<Education> educationArrayList = new ArrayList<>(educationSet);
 
             if (educationArrayList.get(0).getCollege() != null) {
                 for (int i = 0; i < educationArrayList.size(); i++) {
@@ -309,8 +306,7 @@
         <hr class="style14">
         <%
             Set<Language> languageSet = person.getLanguage();
-            ArrayList<Language> languageArrayList = new ArrayList<>();
-            languageArrayList.addAll(languageSet);
+            ArrayList<Language> languageArrayList = new ArrayList<>(languageSet);
 
             if (languageArrayList.get(0).getName() != null) {
                 for (int i = 0; i < languageArrayList.size(); i++) {
@@ -348,8 +344,7 @@
         <hr class="style14">
         <%
             Set<Skill> skillSet = person.getSkill();
-            ArrayList<Skill> skillArrayList = new ArrayList<>();
-            skillArrayList.addAll(skillSet);
+            ArrayList<Skill> skillArrayList = new ArrayList<>(skillSet);
 
             if (skillArrayList.get(0).getSkillName() != null) {
                 for (int i = 0; i < skillArrayList.size(); i++) {
@@ -387,8 +382,7 @@
         <hr class="style14">
         <%
             Set<SocialMedia> socialMediaSet = person.getSocialMedia();
-            ArrayList<SocialMedia> socialMediaArrayList = new ArrayList<>();
-            socialMediaArrayList.addAll(socialMediaSet);
+            ArrayList<SocialMedia> socialMediaArrayList = new ArrayList<>(socialMediaSet);
 
             if (socialMediaArrayList.get(0).getName() != null) {
                 for (int i = 0; i < socialMediaArrayList.size(); i++) {
@@ -423,8 +417,7 @@
         <button type="submit" class="btn btn-primary">Dodaj społeczność</button>
 
         <button type="submit" class="btn btn-primary">Anuluj</button>
-
-        <a href="/sqlForm/<%=Integer.valueOf(Integer.toString(person.getUser().getHashCode()).substring(1))%>">Aktualizuj dane</a>
+        <button type="submit" class="btn btn-primary">Wygeneruj</button>
     </form>
 
     <script src="${pageContext.request.contextPath}/lib/vendor/jquery/jquery.min.js"></script>
