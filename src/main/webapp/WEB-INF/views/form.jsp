@@ -33,11 +33,11 @@
 <h1 class="text-center">Formularz bez rejestracji</h1>
 <hr class="style18">
 <div class="container">
-    <form:form method="post" action="/result" modelAttribute="PersonDTO" >
+    <form:form method="post" action="/result" modelAttribute="PersonDTO">
         <div class="form-row">
             <div class="form-group col-md-4">
                 <form:label path="firstName">Imię</form:label>
-                <form:input path="firstName" type="text" class="form-control"  name="firstName" placeholder="Jan"/>
+                <form:input path="firstName" type="text" class="form-control" name="firstName" placeholder="Jan"/>
             </div>
             <div class="form-group col-md-4">
                 <form:label path="lastName">Nazwisko</form:label>
@@ -45,70 +45,68 @@
             </div>
             <div class="form-group col-md-4">
                 <form:label path="email">email</form:label>
-                <form:input path="email" type="email" class="form-control"  name="email" placeholder="Kowalski@mail.pl"/>
+                <form:input path="email" type="email" class="form-control" name="email" placeholder="Kowalski@mail.pl"/>
             </div>
-<div action="some.jsp col-md-3">
-                <label for="Płeć">Płeć</label>
-                <div></div>
-                <select name="Płeć" id="Płeć">
-                    <option value="1">Kobieta</option>
-                    <option value="2">Mężczyzna</option>
-                    <option value="3">Nie określone</option>
-                </select>
-                <%--<input type="submit" value="Submit"> --%>
-            </div>
-
         </div>
 
         <div class="form-row">
             <div class="form-group col-md-4">
-                <label for="inputAddress">Miejsce zamieszkania</label>
-                <input type="text" class="form-control" id="inputAddress" name="adress" placeholder="Warszawa">
+                <form:label path="adress">Miejsce zamieszkania</form:label>
+                <form:input path="adress" type="text" class="form-control" name="adress" placeholder="Warszawa"/>
             </div>
             <div class="form-group col-md-4">
-                <label for="inputAddress2">Numer telefonu</label>
-                <input type="tel" class="form-control" id="inputAddress2" name="tel" placeholder="888999000">
+                <form:label path="tel" for="inputAddress2">Numer telefonu</form:label>
+                <form:input path="tel" type="tel" class="form-control" name="tel" placeholder="888999000"/>
             </div>
             <div class="form-group col-md-4">
-                <label for="dob">Data urodzenia</label>
-                <input type="date" class="form-control" id="dob" name="dateOfBirth">
+                <form:label path="dateOfBirth">Data urodzenia</form:label>
+                <form:input path="dateOfBirth" type="date" class="form-control"  name="dateOfBirth"/>
             </div>
         </div>
-<div class="form-row">
-           <div class="fab fa-linkedin-in fa-fw col-md-4">
-                <label for="LinkedIn"></label>
-                <input type="text" class = "form-control" id="linkedin" name="linkedin" placeholder="linkedin.com/in/stevedoe">
+        <div class="form-row">
+            <div class="fab fa-linkedin-in fa-fw col-md-4">
+                <form:label path="linkedIn">LinkedIn</form:label>
+                <form:input path="linkedIn" type="text" class="form-control" name="linkedin"
+                       placeholder="linkedin.com/in/stevedoe"/>
             </div>
             <div class="fab fa-github-alt fa-fw col-md-4">
-                <label for="gitHub"></label>
-                <input type="text" class = "form-control" id="gitHub" name="gitHub" placeholder="github.com/username">
+                <form:label path="github">Github</form:label>
+                <form:input path="github" type="text" class="form-control" name="gitHub" placeholder="github.com/username"/>
             </div>
             <div class="fas fa-globe fa-fw col-md-4">
-                <label for="yourWebsite"></label>
-                <input type="text" class = "form-control" id="yourWebsite" name="yourWebsite" placeholder="www.myWebsite.com">
+                <form:label path="yourWebsite">YouWebsite</form:label>
+                <form:input path="yourWebsite" type="text" class="form-control" name="yourWebsite"
+                       placeholder="www.myWebsite.com"/>
+            </div>
+        </div>
+        <h3 class="text-center">O sobie</h3>
+        <div id="aboutMe">
+            <div class="form-group col-md-13">
+                <form:label path="aboutMe">Parę słów o sobie</form:label>
+                <form:input path="aboutMe" type="text" class="form-control" name="aboutMe" value=""/>
             </div>
         </div>
         <hr>
         <h3 class="text-center">Edukacja</h3>
         <div id="education_fields">
-            <%--tu zostaną utworzone nowe formy po kliknięciu + --%>
+                <%--tu zostaną utworzone nowe formy po kliknięciu + --%>
         </div>
         <div class="form-row">
             <div class="form-group col-xs-6 col-sm-4 col-md-3 col-lg-3 col-xl-3">
-                <label for="schoolName">Uczelnia/Kurs</label>
-                <input type="text" class="form-control" id="schoolName" name="schoolName" value="">
+                <form:label path="schoolName" for="schoolName">Uczelnia/Kurs</form:label>
+                <form:input path="schoolName" type="text" class="form-control" id="schoolName" name="schoolName" value=""/>
             </div>
             <div class="form-group col-xs-6 col-sm-4 col-md-3 col-lg-3 col-xl-3">
-                <label for="studySubject">przedmiot nauki</label>
-                <input type="text" class="form-control" id="studySubject" name="studySubject" value="">
+                <form:label path="studySubject" for="studySubject">przedmiot nauki</form:label>
+                <form:input path="studySubject" type="text" class="form-control" id="studySubject" name="studySubject" value=""/>
             </div>
             <div class="form-group col-xs-6 col-sm-4 col-md-3 col-lg-3 col-xl-3">
-                <label for="studyDateFrom">data od</label>
-                <input type="date" class="form-control" id="studyDateFrom" name="studyDateFrom">
+                <form:label path="studyDateFrom" for="studyDateFrom">data od</form:label>
+                <form:input path="studyDateFrom" type="date" class="form-control" id="studyDateFrom" name="studyDateFrom"/>
             </div>
             <div class="form-group col-xs-6 col-sm-4 col-md-3 col-lg-3 col-xl-3">
-                <label for="studyDateTo">data do</label>
-                <input type="date" class="form-control" id="studyDateTo" name="studyDateTo">
+                <form:label path="studyDateTo">data do</form:label>
+                <form:input path="studyDateTo" class="form-control" id="studyDateTo" name="studyDateTo"/>
             </div>
             <div class="input-group-btn">
                 <button class="btn btn-success" type="button" onclick="education_fields();"><span
@@ -117,46 +115,46 @@
             <div class="clear"></div>
         </div>
         <%--<div class="form-row">--%>
-            <%--<div class="form-group col-md-3">--%>
-                <%--<label for="schoolName">Uczelnia/kurs/szkolenie</label>--%>
-                <%--<input type="text" class="form-control" id="schoolName">--%>
-            <%--</div>--%>
-            <%--<div class="form-group col-md-3">--%>
-                <%--<label for="studySubject">przedmiot nauki</label>--%>
-                <%--<input type="tel" class="form-control" id="studySubject">--%>
-            <%--</div>--%>
-            <%--<div class="form-group col-md-3">--%>
-                <%--<label for="studyDateFrom">data od</label>--%>
-                <%--<input type="date" class="form-control" id="studyDateFrom">--%>
-            <%--</div>--%>
-            <%--<div class="form-group col-md-3">--%>
-                <%--<label for="studyDateTo">data do</label>--%>
-                <%--<input type="date" class="form-control" id="studyDateTo">--%>
-            <%--</div>--%>
+        <%--<div class="form-group col-md-3">--%>
+        <%--<label for="schoolName">Uczelnia/kurs/szkolenie</label>--%>
+        <%--<input type="text" class="form-control" id="schoolName">--%>
+        <%--</div>--%>
+        <%--<div class="form-group col-md-3">--%>
+        <%--<label for="studySubject">przedmiot nauki</label>--%>
+        <%--<input type="tel" class="form-control" id="studySubject">--%>
+        <%--</div>--%>
+        <%--<div class="form-group col-md-3">--%>
+        <%--<label for="studyDateFrom">data od</label>--%>
+        <%--<input type="date" class="form-control" id="studyDateFrom">--%>
+        <%--</div>--%>
+        <%--<div class="form-group col-md-3">--%>
+        <%--<label for="studyDateTo">data do</label>--%>
+        <%--<input type="date" class="form-control" id="studyDateTo">--%>
+        <%--</div>--%>
         <%--</div>--%>
 
         <hr>
         <h3 class="text-center">Praca</h3>
         <div class="form-row">
             <div class="form-group col-md-3">
-                <label for="schoolName3">Firma</label>
-                <input type="text" class="form-control" id="schoolName3" name="jobCompany">
+                <form:label path="jobCompany">Firma</form:label>
+                <form:input path="jobCompany" type="text" class="form-control" id="schoolName3" name="jobCompany"/>
             </div>
             <div class="form-group col-md-3">
-                <label for="studySubject3">stanowisko</label>
-                <input type="text" class="form-control" id="studySubject3" name="occupance">
+                <form:label path="occupance" for="studySubject3">stanowisko</form:label>
+                <form:input path="occupance" type="text" class="form-control" id="studySubject3" name="occupance"/>
             </div>
             <div class="form-group col-md-3">
-                <label for="studyDateFrom3">data od</label>
-                <input type="date" class="form-control" id="studyDateFrom3" name="jobDateFrom">
+                <form:label path="jobDateFrom" for="studyDateFrom3">data od</form:label>
+                <form:input path="jobDateFrom" type="date" class="form-control" id="studyDateFrom3" name="jobDateFrom"/>
             </div>
             <div class="form-group col-md-3">
-                <label for="studyDateTo3">data do</label>
-                <input type="date" class="form-control" id="studyDateTo3" name="jobDateTo">
+                <form:label path="jobDateTo" for="studyDateTo3">data do</form:label>
+                <form:input path="jobDateTo" type="date" class="form-control" id="studyDateTo3" name="jobDateTo"/>
             </div>
-<div class="form-group col-md-12">
-                <label for="aboutJob">Opis stanowiska</label>
-                <input type="text" class="form-control" id="aboutJob" name="description">
+            <div class="form-group col-md-12">
+                <form:label path="description" for="aboutJob">Opis stanowiska</form:label>
+                <form:input path="description" type="text" class="form-control" id="aboutJob" name="description"/>
             </div>
         </div>
 
@@ -165,8 +163,8 @@
         <div id="language_fields">
         </div>
         <div class="form-group col-xs-6 col-sm-4 col-md-3 col-lg-3 col-xl-3">
-            <label for="language">Język</label>
-            <input type="text" class="form-control" id="language" name="language">
+            <form:label path="language" for="language">Język</form:label>
+            <form:input path="language" type="text" class="form-control" id="language" name="language"/>
         </div>
         <div class="input-group-btn">
             <button class="btn btn-success" type="button" onclick="language_fields();"><span

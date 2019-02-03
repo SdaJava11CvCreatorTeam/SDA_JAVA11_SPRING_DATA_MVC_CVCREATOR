@@ -42,7 +42,10 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav text-uppercase ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#portfolio">Stwórz cv(bez rejestracji)</a>
+                    <a class="nav-link js-scroll-trigger" href="/login">Zaloguj się</a>
+                </li>
+                <li>
+                    <a class="nav-link js-scroll-trigger" href="/register">Zarejestruj się</a>
                 </li>
             </ul>
         </div>

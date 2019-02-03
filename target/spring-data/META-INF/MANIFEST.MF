@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Implementation-Title: SpringData Maven Webapp
 Implementation-Version: 1.0-SNAPSHOT
-Built-By: matel
+Built-By: Łukasz
 Implementation-Vendor-Id: pl.hit.spring
 Created-By: IntelliJ IDEA
-Build-Jdk: 1.8.0_171
+Build-Jdk: 1.8.0_191
 Main-Class: ${start-class}
 
