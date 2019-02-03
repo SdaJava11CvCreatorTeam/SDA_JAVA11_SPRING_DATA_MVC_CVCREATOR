@@ -7,10 +7,12 @@ import org.springframework.web.bind.annotation.*;
 import pl.hit.spring.core.services.*;
 import pl.hit.spring.data.model.*;
 
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.Set;
 
 @Controller
@@ -45,23 +47,24 @@ public class SqlFormController {
 
     @GetMapping("/{idUser:[1-9][0-9]*}")
     public String showForm(@PathVariable int idUser, Model model, HttpServletRequest request) {
-        Person personSql = getPerson(getUser(idUser));
-        Person personModel = (Person) request.getAttribute("person");
-        if (personModel == null) {
-            System.out.println("person is null");
-        }
+        Person person = getPerson(getUser(idUser));
 
-        model.addAttribute("person", personSql);
+        model.addAttribute("person", person);
 
         return "sqlForm";
     }
 
-    @PostMapping("/{idUser:[1-9][0-9]*}")
-    public void saveForm(Model model, HttpServletResponse response) throws IOException {
-        System.out.println("IM IN POST!");
+    @PostMapping("/{idUser:[1-9][0-9]*}/save")
+    public void saveForm(@PathVariable int idUser, String newFirstName, String newLastName, String newDateOfBirth,
+                         String gender, int newPhone, String newEmail, String newAbout, HttpServletResponse response) throws IOException {
+        Person oldPerson = getPerson(getUser(idUser));
+        Person newPerson = new Person();
+        newPerson.setFirstName(newFirstName);
+        newPerson.setLastName(newLastName);
 
+        //personService.setPerson(oldPerson, newPerson);
 
-        response.sendRedirect("login");
+        response.sendRedirect("/userMenu/" + idUser);
     }
 
     private User getUser(int idUser) {

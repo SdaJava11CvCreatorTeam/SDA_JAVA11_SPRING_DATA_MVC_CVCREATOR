@@ -34,6 +34,24 @@ public class PersonService {
         return person;
     }
 
+    public void setPerson(Person oldPerson, Person newPerson) {
+//        disableSaveMode();
+
+        if (!newPerson.getFirstName().equals(oldPerson.getFirstName())) {
+            setFirstName(newPerson);
+        }
+
+//        enableSaveMode();
+    }
+
+    private void enableSaveMode() {
+        personRepository.enableSafeMode();
+    }
+
+    private void disableSaveMode() {
+        personRepository.disableSafeMode();
+    }
+
     private int getIdPerson(int idUser) {
         return personRepository.getIdPerson(idUser);
     }
@@ -88,5 +106,9 @@ public class PersonService {
 
     private int getIdAddress(int idPerson) {
         return personRepository.getIdAddress(idPerson);
+    }
+
+    private void setFirstName(Person newPerson) {
+        personRepository.setFirstName(newPerson.getFirstName(), newPerson.getIdPerson());
     }
 }
